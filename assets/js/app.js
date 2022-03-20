@@ -140,63 +140,32 @@ prices.forEach(price => {
 	let priceLocal = priceText.toLocaleString('ru-RU')
 	price.innerText = priceLocal;
 })
-// const headerHeight = document.querySelector('.header__inner');
-// const body = document.querySelector('body');
+const headerHeight = document.querySelector('.header');
+const body = document.querySelector('body');
 
-// window.addEventListener('scroll', function () {
-// 	if (window.matchMedia('(max-width:826px)').matches) {
-// 		return;
-// 	}
-// 	else if (window.pageYOffset > 0) {
-// 		headerHeight.classList.add('scroll')
-// 	} else {
-// 		headerHeight.classList.remove('scroll')
-// 	}
-// })
+body.addEventListener('click', function (e) {
 
-// body.addEventListener('click', function (e) {
-	
-// 	let target = e.target;
-// 	if(!target.hasAttribute("data-scroll-to")) {
-// 		return;
-// 	}
+	let target = e.target;
+	if (!target.hasAttribute("data-scroll")) {
+		return;
+	}
 
-// 	let scrollToItemClass = target.closest('[data-scroll-to]').getAttribute('data-scroll-to');
+	let scrollToItemClass = target.closest('[data-scroll]').getAttribute('data-scroll');
 
-// 	let scrollToItem = document.querySelector('.' + scrollToItemClass)
+	let scrollToItem = document.querySelector('.' + scrollToItemClass)
 
-// 	if (scrollToItem) {
-// 		scrollToSection(scrollToItem);
-// 	}
-// })
+	if (scrollToItem) {
+		scrollToSection(scrollToItem);
+	}
+})
 
-// let scrollToSection = function (item) {
-// 	let targetTop = item.getBoundingClientRect().top;
-// 	let scrollTop = window.pageYOffset;
-// 	let summTop = scrollTop + targetTop
-// 	let headerOffset = document.querySelector('.header__inner').clientHeight;
+let scrollToSection = function (item) {
+	let targetTop = item.getBoundingClientRect().top;
+	let scrollTop = window.pageYOffset;
+	let summTop = scrollTop + targetTop
 
-	// window.scrollTo(0, summTop - headerOffset + 11, behavior: 'smooth')
-
-// 	if (window.pageYOffset === 0) {
-// 		window.scrollTo({
-// 			top: summTop - headerOffset + 11,
-// 			behavior: "smooth"
-// 		});
-// 	} else {
-// 		window.scrollTo({
-// 			top: summTop - headerOffset,
-// 			behavior: "smooth"
-// 		});
-// 	}
-
-	// components/burger.js
-	// let burger = document.querySelector('.menu__icon')
-	// let iconMenu = document.querySelector('.menu__body')
-
-// 	if (window.matchMedia('(max-width:826px)').matches) {
-// 		iconMenu.classList.remove('active');
-// 		burger.classList.remove('active');
-// 		document.body.classList.remove('lock');
-// 	}
-// }
+	window.scrollTo({
+		top: summTop,
+		behavior: "smooth"
+	});
+}
