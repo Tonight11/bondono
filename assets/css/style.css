@@ -201,6 +201,7 @@ body {
 }
 
 .header-body {
+    padding-top: 60px;
     background-color: #ccb2a3;
     color: #fff;
     min-height: 100vh;
